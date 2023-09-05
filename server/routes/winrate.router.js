@@ -38,4 +38,26 @@ router.get('/', (req, res) => {
 
 
 
+  router.post('/', (req, res) => {
+    console.log("login:", req.isAuthenticated())
+  
+    if (req.isAuthenticated()) {
+    console.log('req body:', req.body)
+  
+    let queryText = `INSERT INTO "player"("player_name")
+    VALUES($1);`
+    let queryParams = [req.body.player_name];
+    pool.query(queryText, queryParams)
+      .then((result) => {
+        res.sendStatus(201)
+      }).catch((error) => {
+        res.sendStatus(500)
+      })
+    } else {
+      res.sendStatus(403);
+    }
+    
+    });
+
+
 module.exports = router;

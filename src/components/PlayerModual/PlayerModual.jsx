@@ -48,6 +48,8 @@ export default function PlayerModal() {
         type: "ADD_PLAYER",
         payload: { player_name: newPlayerName}
       });
+
+      setNewPlayerName("")
   }
 
 

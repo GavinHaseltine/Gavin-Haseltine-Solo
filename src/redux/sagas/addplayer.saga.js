@@ -3,15 +3,15 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 
 
-function* postItem(action) {
+function* postPlayer(action) {
 
     
     try {
         console.log(action.payload)
-        const shelf = yield axios.post('/api/shelf', action.payload);
-        console.log('get all:', shelf.data);
+        const newPlayer = yield axios.post('/api/winrate', action.payload);
+        console.log('get all:', newPlayer.data);
 
-        yield put({ type: 'FETCH_SHELF'});
+        yield put({ type: 'FETCH_PLAYERS'});
 
     } catch (error){
         console.log('get all error', error);
@@ -19,8 +19,8 @@ function* postItem(action) {
         
 }
 
-function* addItemSaga() {
-    yield takeLatest('ADD_PLAYER', postItem);
+function* addPlayerSaga() {
+    yield takeLatest('ADD_PLAYER', postPlayer);
 }
 
-export default addItemSaga;
+export default addPlayerSaga;
