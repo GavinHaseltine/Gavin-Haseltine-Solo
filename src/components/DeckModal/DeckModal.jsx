@@ -52,7 +52,7 @@ const style = {
 
     return (
         <div>
-          <Button onClick={handleAll}>Players</Button>
+          <Button onClick={handleAll}>Decks</Button>
           <Modal
             open={open}
             onClose={handleClose}
@@ -61,7 +61,7 @@ const style = {
           >
             <Box sx={style}>
               <Typography id="modal-modal-title" variant="h6" component="h2">
-                Player List
+                Deck List
               </Typography>
               <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                 
@@ -72,7 +72,7 @@ const style = {
                         <div key={deck.id}>
                          <li>{deck.deck_name}</li>
                         <ul>Win Rate: {winrate}%</ul> 
-                        <button onClick={() => dispatch({ type: "DELETE_DECK", payload: deck.id })}>Remove Player</button> 
+                        <button onClick={() => dispatch({ type: "DELETE_DECK", payload: deck.id })}>Remove Deck</button> 
                       </div>
                     )
                 })}
@@ -80,11 +80,11 @@ const style = {
                <form onSubmit={handleAdd}>
                     <input 
                     type="text" 
-                    placeholder='Enter Player Name'
+                    placeholder='Enter Deck Name'
                     value={newDeckName}
                     onChange={(event) => setNewDeckName(event.target.value)}
                     />
-                    <button type="submit">Add Player</button>
+                    <button type="submit">Add Deck</button>
                 </form>
         
               </Typography>

@@ -26,7 +26,7 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/api/winrate', winRouter)
-app.use('api/decks', deckRouter)
+app.use('/api/decks', deckRouter)
 
 // Serve static files
 app.use(express.static('build'));
