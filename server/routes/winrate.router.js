@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   
     console.log(req.body)
   
-    let querytext = `SELECT "games_played", "games_won" FROM "player" WHERE "id" = 2;`
+    let querytext = `SELECT * FROM "player";`
     pool.query(querytext)
     .then((response) => {
       res.send(response.rows)
