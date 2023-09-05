@@ -19,6 +19,7 @@ const style = {
 };
 
 export default function PlayerModal() {
+  const [newPlayerName, setNewPlayerName] = useState("");
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -33,16 +34,22 @@ export default function PlayerModal() {
   }
 
   function handleGet(){
-    console.log("in get")
+    console.log("in get");
 
     dispatch({
         type: "FETCH_PLAYERS"
       });
   }
 
-  function handleClick(){
-    console.log("in click")
+  function handleAdd(event){
+    event.preventDefault();
+
+    dispatch({
+        type: "ADD_PLAYER",
+        payload: { player_name: newPlayerName}
+      });
   }
+
 
   return (
     <div>
@@ -64,12 +71,22 @@ export default function PlayerModal() {
                 let winrate = ( player.games_won / player.games_played * 100).toFixed(1);
                 return (
                     <div key={player.id}>
-                    <div> <li>{player.player_name}</li></div>
-                   <div> <ul>Win Rate: {winrate}%</ul> </div>
-                   <div> <button onClick={handleClick}>Remove Player</button> </div>
+                     <li>{player.player_name}</li>
+                    <ul>Win Rate: {winrate}%</ul> 
+                    <button onClick={() => dispatch({ type: "DELETE_PLAYER", payload: player.id })}>Remove Player</button> 
                   </div>
                 )
             })}
+
+           <form onSubmit={handleAdd}>
+                <input 
+                type="text" 
+                placeholder='Enter Player Name'
+                value={newPlayerName}
+                onChange={(event) => setNewPlayerName(event.target.value)}
+                />
+                <button type="submit">Add Player</button>
+            </form>
     
           </Typography>
         </Box>
