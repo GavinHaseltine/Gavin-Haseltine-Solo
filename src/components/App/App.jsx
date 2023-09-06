@@ -19,6 +19,8 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import GameLogPage from '../GameLogPage/GameLogPage';
+
 
 import './App.css';
 
@@ -33,6 +35,7 @@ function App() {
 
   return (
     <Router>
+
       <div>
         <Nav />
         <Switch>
@@ -109,11 +112,17 @@ function App() {
               <LandingPage />
             }
           </Route>
+          <Route path='/gamelogpage' exact>
+            <h1>Log Game</h1>
+            <GameLogPage />
+          </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
             <h1>404</h1>
           </Route>
+
+
         </Switch>
         <Footer />
       </div>
