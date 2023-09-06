@@ -5,13 +5,17 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import Stack from '@mui/material/Stack';
+
+
 
 const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
+    height: 600,
+    overflow: 'scroll',
     width: 400,
     bgcolor: 'background.paper',
     border: '2px solid #000',
@@ -64,6 +68,7 @@ const style = {
           >
             <Box sx={style}>
               <Typography id="modal-modal-title" variant="h6" component="h2">
+                
                 Deck List
               </Typography>
               <Typography id="modal-modal-description" sx={{ mt: 2 }}>
@@ -75,7 +80,7 @@ const style = {
                         <div key={deck.id}>
                          <li>{deck.deck_name}</li>
                         <ul>Win Rate: {winrate}%</ul> 
-                      <div> <a href={deck.deck_list} target="_blank" rel="noopener noreferrer">Deck List </a> </div>
+                      <div> <a href={deck.deck_list} target="_blank" rel="noopener noreferrer">{deck.deck_name} Deck List </a> </div>
                         <button onClick={() => dispatch({ type: "DELETE_DECK", payload: deck.id })}>Remove Deck</button> 
                       </div>
                     )
