@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ButtonToUserPage } from '../ButtonToUserPage/ButtonToUserPage';
+import PlayerSelector from '../PlayerSelector/PlayerSelector';
 
 export default function GameLogPage() {
 
@@ -9,6 +10,9 @@ export default function GameLogPage() {
 
 
     return(
-        <ButtonToUserPage />
+       <div>
+       <ButtonToUserPage />
+       <PlayerSelector />
+       </div>
     )
 }

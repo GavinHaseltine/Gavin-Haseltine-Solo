@@ -4,28 +4,37 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { useDispatch, useSelector } from "react-redux";
 
-export default function BasicSelect() {
-    const [age, setAge] = React.useState('');
+export default function PlayerSelector() {
+    const [player, setPlayer] = React.useState('');
+    const players = useSelector((store) => store.playerReducer);
   
     const handleChange = (event) => {
-      setAge(event.target.value);
+      setPlayer(event.target.value);
     };
   
     return (
       <Box sx={{ minWidth: 120 }}>
         <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Age</InputLabel>
+          <InputLabel id="demo-simple-select-label">Select Player</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value={age}
-            label="Age"
+            value={player}
+            label="Select Player"
             onChange={handleChange}
           >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            {players.map((player) => {
+                
+                return (
+                    <div key={player.id}>
+                     <MenuItem value={player.id}>{player.player_name}</MenuItem> 
+                  </div>
+                )
+            })}
+            
+         
           </Select>
         </FormControl>
       </Box>
