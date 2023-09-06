@@ -158,22 +158,20 @@ const Listbox = styled('ul')(
 `,
 );
 
-export default function PlayerSelector() {
+export default function DeckSelector() {
 
-    const players = useSelector((store) => store.playerReducer);
-    const [selectedPlayers, setSelectedPlayers] = useState([]);
+    const decks = useSelector((store) => store.deckReducer);
+    const [selectedDecks, setSelectedDecks] = useState([]);
     const dispatch = useDispatch();
 
             useEffect(() => {
-                    dispatch({ type: "FETCH_PLAYERS" });
+                    dispatch({ type: "FETCH_DECKS" });
                   }, [dispatch]);
                   
 
 
                   function handleSubmit(){
-                    console.log("selected player objects", selectedPlayers )
-
-                    
+                    console.log("selected deck objects", selectedDecks )
                   }
 
   const {
@@ -189,22 +187,22 @@ export default function PlayerSelector() {
     setAnchorEl,
   } = useAutocomplete({
     onChange: (event, newValue) => {
-        setSelectedPlayers(newValue);
+        setSelectedDecks(newValue);
       },
     id: 'customized-hook-demo',
     defaultValue: [],
     multiple: true,
-    options: players,
-    getOptionLabel: (option) => option.player_name,
+    options: decks,
+    getOptionLabel: (option) => option.deck_name,
   });
 
   return (
     <Root>
       <div {...getRootProps()}>
-        <Label {...getInputLabelProps()}>Player List</Label>
+        <Label {...getInputLabelProps()}>Deck List</Label>
         <InputWrapper ref={setAnchorEl} className={focused ? 'focused' : ''}>
           {value.map((option, index) => (
-            <StyledTag label={option.player_name} {...getTagProps({ index })} />
+            <StyledTag label={option.deck_name} {...getTagProps({ index })} />
           ))}
           <input {...getInputProps()} />
         </InputWrapper>
@@ -213,7 +211,7 @@ export default function PlayerSelector() {
         <Listbox {...getListboxProps()}>
           {groupedOptions.map((option, index) => (
             <li {...getOptionProps({ option, index })}>
-              <span>{option.player_name}</span>
+              <span>{option.deck_name}</span>
               <CheckIcon fontSize="small" />
             </li>
           ))}
@@ -227,70 +225,3 @@ export default function PlayerSelector() {
 
   
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import * as React from 'react';
-// import TextField from '@mui/material/TextField';
-// import Stack from '@mui/material/Stack';
-// import Autocomplete from '@mui/material/Autocomplete';
-// import { useDispatch, useSelector } from "react-redux";
-// import { useEffect, useState } from "react";
-
-// export default function PlayerSelector() {
-//     const players = useSelector((store) => store.playerReducer);
-//     const dispatch = useDispatch();
-//     const [selectedPlayer, setSelectedPlayer] = useState("");
-//     const [selectedPlayerObject, setSelectedPlayerObject] = useState(null);
-
-//     useEffect(() => {
-//             dispatch({ type: "FETCH_PLAYERS" });
-//           }, [dispatch]);
-
-//           function handleClick() {
-            
-//             const selectedPlayerObject = players.find(
-//               (player) => player.player_name === selectedPlayer
-//             );
-//             setSelectedPlayerObject(selectedPlayerObject);
-//             console.log(selectedPlayerObject)
-//           }
-
-//   return (
-//     <div>
-//     <Stack spacing={2} sx={{ width: 300 }}>
-//       <Autocomplete
-//         id="free-solo-demo"
-//         freeSolo
-//         options={players.map((option) => option.player_name)}
-//         value={selectedPlayer}
-//   onChange={(event, newValue) => {
-//     setSelectedPlayer(newValue);
-//   }}
-//         renderInput={(params) => <TextField {...params} label="Select Player" />}
-//       />
-//     </Stack>
-
-//     <button onClick={handleClick}>Please</button>
-//     </div>
-//   );
-// }
