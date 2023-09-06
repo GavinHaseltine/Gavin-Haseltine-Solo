@@ -7,6 +7,7 @@ import deletePlayerSaga from './deleteplayer.saga';
 import addPlayerSaga from './addplayer.saga';
 import deckSaga from './deck.saga';
 import deleteDeckSaga from './deletedeck.saga';
+import addDeckSaga from './adddeck.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -25,5 +26,6 @@ export default function* rootSaga() {
     addPlayerSaga(),
     deckSaga(),
     deleteDeckSaga(), 
+    addDeckSaga(),
   ]);
 }

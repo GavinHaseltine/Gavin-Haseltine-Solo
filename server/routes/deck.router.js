@@ -35,6 +35,26 @@ router.get('/', (req, res) => {
   });
 
 
+  router.post('/', (req, res) => {
+    console.log("login:", req.isAuthenticated())
+  
+    if (req.isAuthenticated()) {
+    console.log('req body:', req.body)
+  
+    let queryText = `INSERT INTO "all_decks" ("deck_name", "deck_list")
+    VALUES($1, $2);`
+    let queryParams = [req.body.deck_name, req.body.deck_list];
+    pool.query(queryText, queryParams)
+      .then((result) => {
+        res.sendStatus(201)
+      }).catch((error) => {
+        res.sendStatus(500)
+      })
+    } else {
+      res.sendStatus(403);
+    }
+    
+    });
 
 
 

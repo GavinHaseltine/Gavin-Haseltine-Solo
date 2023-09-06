@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const style = {
     position: 'absolute',
@@ -20,6 +21,7 @@ const style = {
 
   export default function DeckModal() {
     const [newDeckName, setNewDeckName] = useState("");
+    const [newDeckURL, setNewDeckURL] = useState("");
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -44,10 +46,11 @@ const style = {
     
         dispatch({
             type: "ADD_DECK",
-            payload: { deck_name: newDeckName}
+            payload: { deck_name: newDeckName, deck_list: newDeckURL}
           });
     
           setNewDeckName("")
+          setNewDeckURL("")
       }
 
     return (
@@ -72,6 +75,7 @@ const style = {
                         <div key={deck.id}>
                          <li>{deck.deck_name}</li>
                         <ul>Win Rate: {winrate}%</ul> 
+                      <div> <a href={deck.deck_list} target="_blank" rel="noopener noreferrer">Deck List </a> </div>
                         <button onClick={() => dispatch({ type: "DELETE_DECK", payload: deck.id })}>Remove Deck</button> 
                       </div>
                     )
@@ -83,6 +87,12 @@ const style = {
                     placeholder='Enter Deck Name'
                     value={newDeckName}
                     onChange={(event) => setNewDeckName(event.target.value)}
+                    />
+                    <input 
+                    type="text" 
+                    placeholder='Deck URL'
+                    value={newDeckURL}
+                    onChange={(event) => setNewDeckURL(event.target.value)}
                     />
                     <button type="submit">Add Deck</button>
                 </form>
