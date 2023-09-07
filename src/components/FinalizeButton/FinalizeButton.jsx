@@ -30,8 +30,10 @@ export default function FinalizeButton() {
 
             if(deck === deckWinner){
             console.log("Deck winner:", deck)
-        } else {
+            axios.put(`/api/deckwin/${deck.id}`)
+    }  else {
             console.log("Deck losers:", deck)
+            axios.put(`/api/deckloser/${deck.id}`)
         }
         }
 
@@ -39,8 +41,11 @@ export default function FinalizeButton() {
 
             if(player === playerWinner){
             console.log("Player winner:", player)
+            axios.put(`/api/playerwin/${player.id}`)
         } else {
             console.log("Player losers:", player)
+            axios.put(`/api/playerloser/${player.id}`)
+            
         }
         }
 
