@@ -8,34 +8,35 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
 
-export default function WinnerSelector() {
+export default function WinnerDeckSelector() {
 
-    const readyPlayers = useSelector((store) => store.readyPlayerReducer);
+    const readyDecks = useSelector((store) => store.readyDeckReducer);
     
 
-  const [playerName, setPlayerName] = React.useState('');
+  const [deckName, setDeckName] = React.useState('');
 
   const handleChange = (event) => {
-    setPlayerName(event.target.value);
-    console.log(playerName)
+    
+    setDeckName(event.target.value);
+    console.log(deckName)
   };
 
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Select Winner</InputLabel>
+        <InputLabel id="demo-simple-select-label">Select Deck</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={playerName}
-          label="Select Winner"
+          value={deckName}
+          label="Select Deck"
           onChange={handleChange}
           displayEmpty
           native={false}
         >
-          {readyPlayers.map((player) => (
-            <MenuItem key={player.id} value={player}>
-              {player.player_name}
+          {readyDecks.map((deck) => (
+            <MenuItem key={deck.id} value={deck}>
+              {deck.deck_name}
             </MenuItem>
           ))}
         </Select>

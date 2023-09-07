@@ -7,6 +7,7 @@ import DeckSelector from '../DeckSelector/DeckSelector';
 import ReadyPlayers from '../ReadyPlayers/ReadyPlayers';
 import ReadyDecks from '../ReadyDecks/ReadyDecks';
 import WinnerSelector from '../WinnerSelector/WinnerSelector';
+import WinnerDeckSelector from '../WinnerDeckSelector/WinnerDeckSelector';
 
 
 export default function GameLogPage() {
@@ -26,6 +27,8 @@ export default function GameLogPage() {
        <h3>Post-Game</h3>
        <h5>Winner:</h5>
        <WinnerSelector />
+       <WinnerDeckSelector />
+
        </div>
     )
 }
