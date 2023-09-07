@@ -3,6 +3,8 @@ import errors from './errors.reducer';
 import user from './user.reducer';
 import playerReducer from './player.reducer';
 import deckReducer from './deck.reducer';
+import readyPlayerReducer from './ready.player.reducer';
+import readyDeckReducer from './ready.deck.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -15,6 +17,8 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   playerReducer,
   deckReducer,
+  readyPlayerReducer,
+  readyDeckReducer,
 });
 
 export default rootReducer;

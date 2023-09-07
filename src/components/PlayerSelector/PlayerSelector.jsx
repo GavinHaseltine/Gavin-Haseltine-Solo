@@ -171,9 +171,13 @@ export default function PlayerSelector() {
 
 
                   function handleSubmit(){
-                    console.log("selected player objects", selectedPlayers )
+                   
 
-                    
+                    dispatch({
+                        type: "ADD_READY_PLAYER",
+                        payload: selectedPlayers
+                      });
+                      //console.log("selected player objects", selectedPlayers )
                   }
 
   const {

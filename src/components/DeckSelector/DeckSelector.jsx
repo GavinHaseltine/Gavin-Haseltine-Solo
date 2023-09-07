@@ -172,6 +172,11 @@ export default function DeckSelector() {
 
                   function handleSubmit(){
                     console.log("selected deck objects", selectedDecks )
+
+                    dispatch({
+                        type: "ADD_READY_DECK",
+                        payload: selectedDecks
+                      });
                   }
 
   const {
