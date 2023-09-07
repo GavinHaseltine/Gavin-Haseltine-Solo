@@ -11,15 +11,25 @@ import { useEffect, useState } from "react";
 export default function WinnerDeckSelector() {
 
     const readyDecks = useSelector((store) => store.readyDeckReducer);
-    
-
+    const dispatch = useDispatch();
   const [deckName, setDeckName] = React.useState('');
 
+
   const handleChange = (event) => {
-    
     setDeckName(event.target.value);
     console.log(deckName)
   };
+
+  useEffect(() => {
+    dispatch({
+      type: "SET_DECK_WINNER",
+      payload: deckName
+    });
+  }, [deckName, dispatch]);
+
+  useEffect(() => {
+    console.log(deckName);
+  }, [deckName]);
 
   return (
     <Box sx={{ minWidth: 120 }}>

@@ -8,6 +8,7 @@ import ReadyPlayers from '../ReadyPlayers/ReadyPlayers';
 import ReadyDecks from '../ReadyDecks/ReadyDecks';
 import WinnerSelector from '../WinnerSelector/WinnerSelector';
 import WinnerDeckSelector from '../WinnerDeckSelector/WinnerDeckSelector';
+import FinalizeButton from '../FinalizeButton/FinalizeButton';
 
 
 export default function GameLogPage() {
@@ -28,6 +29,7 @@ export default function GameLogPage() {
        <h5>Winner:</h5>
        <WinnerSelector />
        <WinnerDeckSelector />
+       <FinalizeButton />
 
        </div>
     )

@@ -5,6 +5,8 @@ import playerReducer from './player.reducer';
 import deckReducer from './deck.reducer';
 import readyPlayerReducer from './ready.player.reducer';
 import readyDeckReducer from './ready.deck.reducer';
+import winnerPlayerReducer from './winner.player.reducer';
+import winnerDeckReducer from './winnerdeck.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +21,8 @@ const rootReducer = combineReducers({
   deckReducer,
   readyPlayerReducer,
   readyDeckReducer,
+  winnerPlayerReducer,
+  winnerDeckReducer,
 });
 
 export default rootReducer;

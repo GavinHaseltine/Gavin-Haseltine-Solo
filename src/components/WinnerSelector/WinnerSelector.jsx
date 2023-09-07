@@ -11,14 +11,28 @@ import { useEffect, useState } from "react";
 export default function WinnerSelector() {
 
     const readyPlayers = useSelector((store) => store.readyPlayerReducer);
-    
-
   const [playerName, setPlayerName] = React.useState('');
+  const dispatch = useDispatch();
 
   const handleChange = (event) => {
     setPlayerName(event.target.value);
-    console.log(playerName)
+    //console.log(playerName)
+
+    
   };
+
+
+  useEffect(() => {
+    dispatch({
+      type: "SET_WINNER",
+      payload: playerName
+    });
+  }, [playerName, dispatch]);
+
+  useEffect(() => {
+    console.log(playerName);
+  }, [playerName]);
+
 
   return (
     <Box sx={{ minWidth: 120 }}>
