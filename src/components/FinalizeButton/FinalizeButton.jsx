@@ -2,10 +2,12 @@ import * as React from 'react';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { put, takeLatest } from 'redux-saga/effects';
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import axios from 'axios';
 
 
 export default function FinalizeButton() {
+    const history = useHistory()
     //all players & decks
     const readyDecks = useSelector((store) => store.readyDeckReducer);
     const readyPlayers = useSelector((store) => store.readyPlayerReducer);
@@ -48,6 +50,8 @@ export default function FinalizeButton() {
             
         }
         }
+
+        history.push('/user')
 
     }
 

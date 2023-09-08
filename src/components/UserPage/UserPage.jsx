@@ -4,6 +4,7 @@ import {useSelector} from 'react-redux';
 import PlayerModal from '../PlayerModual/PlayerModual';
 import DeckModal from '../DeckModal/DeckModal';
 import { ButtonToGame } from '../ButtonToGame/ButtonToGame';
+import "./UserPage.css"
 
 function UserPage() {
 
