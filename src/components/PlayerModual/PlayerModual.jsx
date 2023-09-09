@@ -13,7 +13,7 @@ const style = {
   transform: 'translate(-50%, -50%)',
   height: 600,
   overflow: 'scroll',
-  width: 400,
+  width: 300,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -78,9 +78,11 @@ export default function PlayerModal() {
                      <li>{player.player_name}</li>
                     <ul>Win Rate: {winrate}%</ul> 
                     <button onClick={() => dispatch({ type: "DELETE_PLAYER", payload: player.id })}>Remove Player</button> 
+                    <div> <div><hr id="rounded" /></div> </div>
                   </div>
                 )
             })}
+           
 
            <form onSubmit={handleAdd}>
                 <input 

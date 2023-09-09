@@ -16,7 +16,7 @@ const style = {
     transform: 'translate(-50%, -50%)',
     height: 600,
     overflow: 'scroll',
-    width: 400,
+    width: 300,
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
@@ -82,9 +82,12 @@ const style = {
                         <ul>Win Rate: {winrate}%</ul> 
                       <div> <a href={deck.deck_list} target="_blank" rel="noopener noreferrer">{deck.deck_name} Deck List </a> </div>
                         <button onClick={() => dispatch({ type: "DELETE_DECK", payload: deck.id })}>Remove Deck</button> 
+                        <div> <div><hr id="rounded" /></div> </div>
                       </div>
+                      
                     )
                 })}
+                
     
                <form onSubmit={handleAdd}>
                     <input 
