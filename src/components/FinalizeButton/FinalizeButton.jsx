@@ -8,6 +8,7 @@ import axios from 'axios';
 
 export default function FinalizeButton() {
     const history = useHistory()
+    const dispatch = useDispatch();
     //all players & decks
     const readyDecks = useSelector((store) => store.readyDeckReducer);
     const readyPlayers = useSelector((store) => store.readyPlayerReducer);
@@ -51,8 +52,15 @@ export default function FinalizeButton() {
         }
         }
 
-        history.push('/user')
+        dispatch({
+            type: "UNSET_READY_PLAYERS",
+          });
 
+          dispatch({
+            type: "UNSET_READY_DECK",
+          });
+
+        history.push('/user')
     }
 
 
