@@ -112,10 +112,10 @@ function App() {
               <LandingPage />
             }
           </Route>
-          <Route path='/gamelogpage' exact>
+          <ProtectedRoute path='/gamelogpage' exact>
             <h1>Log Game</h1>
             <GameLogPage />
-          </Route>
+          </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>

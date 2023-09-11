@@ -57,11 +57,19 @@ const style = {
     
           setNewDeckName("")
           setNewDeckURL("")
-      }
+      } 
 
     return (
         <div>
+          <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      border: '3px solid black',
+      padding: '100px',
+      margin: '10px'
+    }}>
           <Button onClick={handleAll}>Decks</Button>
+        </div>
           <Modal
             open={open}
             onClose={handleClose}

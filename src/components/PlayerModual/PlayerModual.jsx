@@ -6,20 +6,20 @@ import Modal from '@mui/material/Modal';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CloseIcon from '@mui/icons-material/Close';
-import "./PlayerModal.css"
+//import "./PlayerModal.css"
 
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  height: 600,
-  overflow: 'scroll',
-  width: 300,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    height: 600,
+    overflow: 'scroll',
+    width: 300,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
 };
 
 export default function PlayerModal() {
@@ -59,7 +59,15 @@ export default function PlayerModal() {
 
   return (
     <div>
-      <Button onClick={handleAll}>Players</Button>
+      <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      border: '3px solid black',
+      padding: '100px',
+      margin: '10px'
+    }}>
+     <Button onClick={handleAll}>Players</Button>
+   </div>
       <Modal
         open={open}
         onClose={handleClose}
