@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 export function ButtonToGame() {
     const history = useHistory()
 
+
     const handleToNext = () => {
         
         history.push('/gamelogpage')

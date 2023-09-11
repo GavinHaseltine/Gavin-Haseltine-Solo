@@ -5,6 +5,8 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import CloseIcon from '@mui/icons-material/Close';
+import "./PlayerModal.css"
 
 const style = {
   position: 'absolute',
@@ -66,7 +68,10 @@ export default function PlayerModal() {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
+
             Player List
+
+            <div ><CloseIcon onClick={handleClose} className='rightalign'/></div>
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             

@@ -6,6 +6,8 @@ import Modal from '@mui/material/Modal';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Stack from '@mui/material/Stack';
+import CloseIcon from '@mui/icons-material/Close';
+import "./DeckModal.css"
 
 
 
@@ -70,6 +72,8 @@ const style = {
               <Typography id="modal-modal-title" variant="h6" component="h2">
                 
                 Deck List
+
+                <div ><CloseIcon onClick={handleClose} className='rightalign'/></div>
               </Typography>
               <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                 
