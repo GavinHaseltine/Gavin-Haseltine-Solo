@@ -16,7 +16,7 @@ const style = {
     height: 600,
     overflow: 'scroll',
     width: 300,
-    bgcolor: 'background.paper',
+    bgcolor: 'rgb(140, 162, 163)',
     border: '2px solid #000',
     boxShadow: 24,
     p: 4,
@@ -64,9 +64,20 @@ export default function PlayerModal() {
       justifyContent: 'center',
       border: '3px solid black',
       padding: '100px',
-      margin: '10px'
-    }}>
-     <Button onClick={handleAll}>Players</Button>
+      margin: '10px',
+      background: 'rgb(14, 49, 125)',
+      cursor: 'pointer',
+      transition: 'background-color 0.5s'
+    }}
+     onClick={handleAll}
+     onMouseEnter={(event) => {
+        event.target.style.backgroundColor = 'rgb(14, 49, 175)';
+      }}
+      onMouseLeave={(event) => {
+        event.target.style.backgroundColor = 'rgb(14, 49, 125)';
+      }}
+     > 
+     <Button style={{ pointerEvents: 'none', fontSize: '20px'  }}>Players</Button>
    </div>
       <Modal
         open={open}

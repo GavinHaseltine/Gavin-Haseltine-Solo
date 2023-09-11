@@ -11,6 +11,7 @@ function Nav() {
     <div className="nav">
       <Link to="/home">
         <h2 className="nav-title">NoumenonStats</h2>
+        <img className='playerMod' src="/images/NoumenonStats_notext.png"></img>
       </Link>
       <div>
         {/* If no user is logged in, show these links */}
