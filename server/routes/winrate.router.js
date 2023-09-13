@@ -9,8 +9,9 @@ router.get('/', (req, res) => {
   
     console.log(req.body)
   
-    let querytext = `SELECT * FROM "player";`
-    pool.query(querytext)
+    let querytext = `SELECT * FROM "player" WHERE "user_id" = $1;`
+    let queryParams = [ req.user.id];
+    pool.query(querytext, queryParams)
     .then((response) => {
       res.send(response.rows)
     })
@@ -44,9 +45,9 @@ router.get('/', (req, res) => {
     if (req.isAuthenticated()) {
     console.log('req body:', req.body)
   
-    let queryText = `INSERT INTO "player"("player_name")
-    VALUES($1);`
-    let queryParams = [req.body.player_name];
+    let queryText = `INSERT INTO "player"("player_name", "user_id")
+    VALUES($1, $2);`
+    let queryParams = [req.body.player_name, req.user.id];
     pool.query(queryText, queryParams)
       .then((result) => {
         res.sendStatus(201)

@@ -4,11 +4,12 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     console.log(req.isAuthenticated())
-  
+   console.log(req.user)
     console.log(req.body)
   
-    let querytext = `SELECT * FROM "all_decks";`
-    pool.query(querytext)
+    let querytext = `SELECT * FROM "all_decks" WHERE "user_id" = $1;`
+    let queryParams = [ req.user.id];
+    pool.query(querytext, queryParams)
     .then((response) => {
       res.send(response.rows)
     })
@@ -41,9 +42,9 @@ router.get('/', (req, res) => {
     if (req.isAuthenticated()) {
     console.log('req body:', req.body)
   
-    let queryText = `INSERT INTO "all_decks" ("deck_name", "deck_list")
-    VALUES($1, $2);`
-    let queryParams = [req.body.deck_name, req.body.deck_list];
+    let queryText = `INSERT INTO "all_decks" ("deck_name", "deck_list", "user_id")
+    VALUES($1, $2, $3);`
+    let queryParams = [req.body.deck_name, req.body.deck_list, req.user.id];
     pool.query(queryText, queryParams)
       .then((result) => {
         res.sendStatus(201)
