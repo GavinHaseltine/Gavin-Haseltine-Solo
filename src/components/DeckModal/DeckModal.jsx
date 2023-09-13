@@ -65,7 +65,7 @@ const style = {
       display: 'flex',
       justifyContent: 'center',
       border: '3px solid black',
-      padding: '100px',
+      padding: '50px',
       margin: '10px',
       background: 'rgb(14, 49, 125)',
       cursor: 'pointer',

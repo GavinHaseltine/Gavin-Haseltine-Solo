@@ -6,7 +6,6 @@ import Modal from '@mui/material/Modal';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CloseIcon from '@mui/icons-material/Close';
-//import "./PlayerModal.css"
 
 const style = {
     position: 'absolute',
@@ -22,64 +21,61 @@ const style = {
     p: 4,
 };
 
-export default function PlayerModal() {
-  const [newPlayerName, setNewPlayerName] = useState("");
-  const [open, setOpen] = React.useState(false);
+export default function HistoryButton() {
+    const [newPlayerName, setNewPlayerName] = useState("");
+    const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const dispatch = useDispatch();
   const players = useSelector((store) => store.playerReducer);
 
-  
+    function handleAll(){
+        handleOpen()
+        handleGet()
+      }
 
-  function handleAll(){
-    handleOpen()
-    handleGet()
-  }
+      function handleGet(){
+        console.log("in get");
+    
+        dispatch({
+            type: "FETCH_PLAYERS"
+          });
+      }
+    
+      function handleAdd(event){
+        event.preventDefault();
+    
+        dispatch({
+            type: "ADD_PLAYER",
+            payload: { player_name: newPlayerName}
+          });
+    
+          setNewPlayerName("")
+      }
 
-  function handleGet(){
-    console.log("in get");
-
-    dispatch({
-        type: "FETCH_PLAYERS"
-      });
-  }
-
-  function handleAdd(event){
-    event.preventDefault();
-
-    dispatch({
-        type: "ADD_PLAYER",
-        payload: { player_name: newPlayerName}
-      });
-
-      setNewPlayerName("")
-  }
-
-
-  return (
-    <div>
-      <div style={{
-      display: 'flex',
-      justifyContent: 'center',
-      border: '3px solid black',
-      padding: '50px',
-      margin: '10px',
-      background: 'rgb(14, 49, 125)',
-      cursor: 'pointer',
-      transition: 'background-color 0.5s'
-    }}
-     onClick={handleAll}
-     onMouseEnter={(event) => {
-        event.target.style.backgroundColor = 'rgb(14, 49, 175)';
-      }}
-      onMouseLeave={(event) => {
-        event.target.style.backgroundColor = 'rgb(14, 49, 125)';
-      }}
-     > 
-     <Button style={{ pointerEvents: 'none', fontSize: '20px'  }}>Players</Button>
-   </div>
-      <Modal
+    return (
+        <div>
+          <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          border: '3px solid black',
+          padding: '50px',
+          margin: '10px',
+          background: 'rgb(14, 49, 125)',
+          cursor: 'pointer',
+          transition: 'background-color 0.5s'
+        }}
+         onClick={handleAll}
+         onMouseEnter={(event) => {
+            event.target.style.backgroundColor = 'rgb(14, 49, 175);';
+          }}
+          onMouseLeave={(event) => {
+            event.target.style.backgroundColor = 'rgb(105, 45, 125);';
+          }}
+         > 
+         <Button style={{ pointerEvents: 'none', fontSize: '20px'  }}>History</Button>
+       </div>
+        <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -100,8 +96,7 @@ export default function PlayerModal() {
                 return (
                     <div key={player.id}>
                      <li>{player.player_name}</li>
-                    <ul>Win Rate: {winrate}%</ul> 
-                    <button onClick={() => dispatch({ type: "DELETE_PLAYER", payload: player.id })}>Remove Player</button> 
+                    <ul>Win Rate: {winrate}%</ul>  
                     <div> <div><hr id="rounded" /></div> </div>
                   </div>
                 )
@@ -122,5 +117,6 @@ export default function PlayerModal() {
         </Box>
       </Modal>
     </div>
-  );
+
+    )
 }

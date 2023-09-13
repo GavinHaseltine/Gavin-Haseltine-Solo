@@ -4,6 +4,7 @@ import {useSelector} from 'react-redux';
 import PlayerModal from '../PlayerModual/PlayerModual';
 import DeckModal from '../DeckModal/DeckModal';
 import { ButtonToGame } from '../ButtonToGame/ButtonToGame';
+import HistoryButton from '../HistoryButton/HistoryButton';
 import "./UserPage.css"
 
 
@@ -18,6 +19,7 @@ function UserPage() {
       <div className='playerMod'><ButtonToGame /></div>
       <PlayerModal />
       <DeckModal />
+      <HistoryButton />
     </div>
   );
 }
