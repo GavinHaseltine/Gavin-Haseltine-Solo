@@ -7,6 +7,7 @@ import { styled } from '@mui/material/styles';
 import { autocompleteClasses } from '@mui/material/Autocomplete';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import Button from '@mui/material/Button';
 
 const Root = styled('div')(
   ({ theme }) => `
@@ -222,7 +223,7 @@ export default function DeckSelector() {
           ))}
         </Listbox>
       ) : null}
-       <div> <button onClick={handleSubmit}>Submit</button> </div>
+       <div> <Button variant="contained" onClick={handleSubmit}>Submit</Button> </div>
     </Root>
 
   

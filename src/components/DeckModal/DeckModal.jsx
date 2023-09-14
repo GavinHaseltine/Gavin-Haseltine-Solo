@@ -104,6 +104,8 @@ export default function DeckModal() {
                             return (
                                 <div key={deck.id}>
                                     <li className='name'>{deck.deck_name}</li>
+                                    <ul className='winr'>Games Played: {deck.deck_plays}</ul>
+                                    <ul className='winr'>Games Won: {deck.deck_wins}</ul>
                                     <ul className='winr'>Win Rate: {winrate}%</ul>
                                     <div> <a href={deck.deck_list} target="_blank" rel="noopener noreferrer">{deck.deck_name} Deck List </a> </div>
 

@@ -101,6 +101,8 @@ export default function PlayerModal() {
                             return (
                                 <div key={player.id}>
                                     <li className='name'>{player.player_name}</li>
+                                    <ul className='winr'>Games Played: {player.games_played}</ul>
+                                    <ul className='winr'>Games Won: {player.games_won}</ul>
                                     <ul className='winr'>Win Rate: {winrate}%</ul>
 
                                     <div className="icon-container">
@@ -133,7 +135,7 @@ export default function PlayerModal() {
                                 value={newPlayerName}
                                 onChange={(event) => setNewPlayerName(event.target.value)}
                             />
-                            <button type="submit">Add Player</button>
+                            <Button Button variant="contained" type="submit">Add Player</Button>
                         </form>
 
                     </Typography>

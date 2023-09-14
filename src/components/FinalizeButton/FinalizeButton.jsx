@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { put, takeLatest } from 'redux-saga/effects';
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import axios from 'axios';
+import Button from '@mui/material/Button';
+import "./FinalizeButton.css"
+
 
 
 export default function FinalizeButton() {
@@ -66,6 +69,6 @@ export default function FinalizeButton() {
 
 
     return(
-        <button onClick={handleSubmit}>Finalize</button>
+      <div style={{ display: 'flex', justifyContent: 'center' }}> <Button className='btn' variant="contained" style={{ backgroundColor: 'rgb(3, 150, 8)' }} onClick={handleSubmit}>Finalize</Button> </div> 
     )
 }
