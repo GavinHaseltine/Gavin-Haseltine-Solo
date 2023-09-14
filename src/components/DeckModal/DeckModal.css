@@ -2,4 +2,21 @@
     float: right;
   }
 
-  
+  .name {
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+  .winr {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .delete {
+    text-align: right;
+  }
+
+  .icon-container {
+    display: flex;
+    justify-content: flex-end;
+  }

@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CloseIcon from '@mui/icons-material/Close';
 //import "./PlayerModal.css"
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 const style = {
     position: 'absolute',
@@ -77,7 +78,7 @@ export default function PlayerModal() {
                     event.target.style.backgroundColor = 'rgb(14, 49, 125)';
                 }}
             >
-                <Button style={{ pointerEvents: 'none', fontSize: '20px' }}>Players</Button>
+                <Button style={{ pointerEvents: 'none', fontSize: '20px', color: 'white' }}>Players</Button>
             </div>
             <Modal
                 open={open}
@@ -99,14 +100,26 @@ export default function PlayerModal() {
                             let winrate = (player.games_won / player.games_played * 100).toFixed(1);
                             return (
                                 <div key={player.id}>
-                                    <li>{player.player_name}</li>
-                                    <ul>Win Rate: {winrate}%</ul>
-                                    <button onClick={() => {
+                                    <li className='name'>{player.player_name}</li>
+                                    <ul className='winr'>Win Rate: {winrate}%</ul>
+
+                                    <div className="icon-container">
+                                    <DeleteForeverIcon variant="contained" sx={{
+                                        backgroundColor: 'red',
+                                        borderRadius: '50%',
+                                        width: 40,
+                                        height: 40,
+                                        color: 'white',
+                                        '&:hover': {
+                                            backgroundColor: 'darkred',
+                                        },
+                                    }} onClick={() => {
                                         const result = window.confirm(`Are you sure you want to remove ${player.player_name}? This action cannot be reversed!`);
                                         if (result === true) {
                                             dispatch({ type: "DELETE_PLAYER", payload: player.id });
                                         }
-                                    }}>Remove Player</button>
+                                    }}>Remove Player</DeleteForeverIcon>
+                                    </div>
                                     <div> <div><hr id="rounded" /></div> </div>
                                 </div>
                             )

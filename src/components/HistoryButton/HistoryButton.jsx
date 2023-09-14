@@ -73,7 +73,7 @@ export default function HistoryButton() {
             event.target.style.backgroundColor = 'rgb(105, 45, 125);';
           }}
          > 
-         <Button style={{ pointerEvents: 'none', fontSize: '20px'  }}>History</Button>
+         <Button style={{ pointerEvents: 'none', fontSize: '20px', color: 'white'  }}>History</Button>
        </div>
         <Modal
         open={open}
