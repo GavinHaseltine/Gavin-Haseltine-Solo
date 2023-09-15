@@ -64,6 +64,12 @@ const InputWrapper = styled('div')(
 `,
 );
 
+const CenteredContainer = styled('div')`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 function Tag(props) {
   const { label, onDelete, ...other } = props;
   return (
@@ -206,9 +212,10 @@ export default function DeckSelector() {
   });
 
   return (
+    <CenteredContainer>
     <Root >
       <div {...getRootProps()}>
-        <Label {...getInputLabelProps()}>Deck List</Label>
+        <Label style={{ display: 'flex', justifyContent: 'center' }} {...getInputLabelProps()}>Deck List</Label>
         <InputWrapper ref={setAnchorEl} className={focused ? 'focused' : ''}>
           {value.map((option, index) => (
             <StyledTag  label={option.deck_name} {...getTagProps({ index })} />
@@ -226,8 +233,9 @@ export default function DeckSelector() {
           ))}
         </Listbox>
       ) : null}
-       <div> <Button  variant="contained" onClick={handleSubmit}>Submit</Button> </div>
+       <div style={{ display: 'flex', justifyContent: 'center' }}> <Button  variant="contained" onClick={handleSubmit}>Submit</Button> </div>
     </Root>
+    </CenteredContainer>
 
   
   );

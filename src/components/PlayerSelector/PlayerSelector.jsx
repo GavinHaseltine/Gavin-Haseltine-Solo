@@ -24,6 +24,12 @@ const Label = styled('label')`
   display: block;
 `;
 
+const CenteredContainer = styled('div')`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const InputWrapper = styled('div')(
   ({ theme }) => `
   width: 300px;
@@ -204,9 +210,10 @@ export default function PlayerSelector() {
   });
 
   return (
+    <CenteredContainer>
     <Root>
       <div {...getRootProps()}>
-        <Label {...getInputLabelProps()}>Player List</Label>
+        <Label style={{ display: 'flex', justifyContent: 'center' }} {...getInputLabelProps()}>Player List</Label>
         <InputWrapper ref={setAnchorEl} className={focused ? 'focused' : ''}>
           {value.map((option, index) => (
             <StyledTag label={option.player_name} {...getTagProps({ index })} />
@@ -224,9 +231,9 @@ export default function PlayerSelector() {
           ))}
         </Listbox>
       ) : null}
-       <div> <Button variant="contained" onClick={handleSubmit}>Submit</Button> </div>
+       <div style={{ display: 'flex', justifyContent: 'center' }}> <Button variant="contained" onClick={handleSubmit}>Submit</Button> </div>
     </Root>
-
+    </CenteredContainer>
   
   );
 
