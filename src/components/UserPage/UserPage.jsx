@@ -14,7 +14,7 @@ function UserPage() {
   const user = useSelector((store) => store.user);
   return (
     <div className="container">
-      <h2>Welcome, {user.username} </h2>
+      <h2 style={{ padding: '5px'}}>Welcome, {user.username} </h2>
       <img className='mid' src="/images/NoumenonStats.png" align="middle"></img>
       <div className='playerMod'><ButtonToGame /></div>
       <PlayerModal />

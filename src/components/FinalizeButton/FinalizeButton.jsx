@@ -69,6 +69,6 @@ export default function FinalizeButton() {
 
 
     return(
-      <div style={{ display: 'flex', justifyContent: 'center' }}> <Button className='btn' variant="contained" style={{ backgroundColor: 'rgb(3, 150, 8)' }} onClick={handleSubmit}>Finalize</Button> </div> 
+      <div style={{ display: 'flex', justifyContent: 'center' }}> <Button className='btn' variant="contained" style={{ backgroundColor: 'rgb(2, 167, 227)' }} onClick={handleSubmit}>Finalize</Button> </div> 
     )
 }

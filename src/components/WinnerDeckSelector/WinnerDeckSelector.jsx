@@ -32,7 +32,7 @@ export default function WinnerDeckSelector() {
   }, [deckName]);
 
   return (
-    <Box sx={{ minWidth: 120 }}>
+    <Box sx={{ minWidth: 120, padding: '1em' }}>
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Select Deck</InputLabel>
         <Select

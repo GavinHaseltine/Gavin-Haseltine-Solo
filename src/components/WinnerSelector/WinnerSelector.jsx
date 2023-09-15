@@ -35,7 +35,7 @@ export default function WinnerSelector() {
 
 
   return (
-    <Box sx={{ minWidth: 120 }}>
+    <Box sx={{ minWidth: 120, padding: '1em' }}>
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Select Winner</InputLabel>
         <Select

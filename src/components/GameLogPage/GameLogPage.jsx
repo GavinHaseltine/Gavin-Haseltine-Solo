@@ -15,24 +15,25 @@ import "./GameLogPage.css"
 export default function GameLogPage() {
 
     return(
-       <div>
+       <div style={{ padding: '20px'}}>
+        <div>
        <ButtonToUserPage />
+       </div>
        <div> <div><hr className="rounded" /></div> </div>
-       <h3>Pre-Game</h3>
+       <h3 style={{ padding: '20px'}}>Pre-Game</h3>
        <PlayerSelector />
        <DeckSelector />
        <div> <div><hr className="rounded" /></div> </div>
-       <h4>Current Players In-Game:</h4>
+       <h4 style={{ padding: '10px'}}>Current Players In-Game:</h4>
        <ReadyPlayers />
-       <h4>Current Decks In-Game:</h4> 
+       <h4 style={{ padding: '10px'}}>Current Decks In-Game:</h4> 
        <ReadyDecks />
        <div> <div><hr className="rounded" /></div> </div>
-       <h3>Post-Game</h3>
-       <h5>Winner:</h5>
+       <h3 style={{ padding: '20px'}}>Post-Game</h3>
+       <h5 style={{ padding: '10px'}}>Winner:</h5>
        <WinnerSelector />
        <WinnerDeckSelector />
        <FinalizeButton />
-
        </div>
     )
 }

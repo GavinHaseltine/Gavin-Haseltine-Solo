@@ -14,7 +14,7 @@ export default function ReadyDecks() {
           return (
             <div key={deck.id}>
               <ul>
-                <li>{deck.deck_name}</li>
+                <li style={{ fontSize: '18px'}}>{deck.deck_name}</li>
               </ul>
             </div>
           );

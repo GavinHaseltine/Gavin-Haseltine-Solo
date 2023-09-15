@@ -15,7 +15,7 @@ export default function ReadyPlayers() {
           return (
             <div key={player.id}>
               <ul>
-                <li>{player.player_name}</li>
+                <li style={{ fontSize: '18px'}}>{player.player_name}</li>
               </ul>
             </div>
           );

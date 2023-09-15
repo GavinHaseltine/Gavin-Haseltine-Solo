@@ -113,7 +113,7 @@ function App() {
             }
           </Route>
           <ProtectedRoute path='/gamelogpage' exact>
-            <h1>Log Game</h1>
+            <h1 style={{ padding: '10px'}}>Log Game</h1>
             <GameLogPage />
           </ProtectedRoute>
 

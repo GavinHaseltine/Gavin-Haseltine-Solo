@@ -233,7 +233,7 @@ export default function DeckSelector() {
           ))}
         </Listbox>
       ) : null}
-       <div style={{ display: 'flex', justifyContent: 'center', padding: '5px' }}> <Button  variant="contained" onClick={handleSubmit}>Submit</Button> </div>
+       <div style={{ display: 'flex', justifyContent: 'center', padding: '5px' }}> <Button style={{ background: 'rgb(14, 49, 125)'}} variant="contained" onClick={handleSubmit}>Submit</Button> </div>
     </Root>
     </CenteredContainer>
 
