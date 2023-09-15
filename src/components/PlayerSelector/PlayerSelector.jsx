@@ -213,7 +213,7 @@ export default function PlayerSelector() {
     <CenteredContainer>
     <Root>
       <div {...getRootProps()}>
-        <Label style={{ display: 'flex', justifyContent: 'center' }} {...getInputLabelProps()}>Player List</Label>
+        <Label style={{ display: 'flex', justifyContent: 'center', fontSize: 17 }} {...getInputLabelProps()}>Player List</Label>
         <InputWrapper ref={setAnchorEl} className={focused ? 'focused' : ''}>
           {value.map((option, index) => (
             <StyledTag label={option.player_name} {...getTagProps({ index })} />
@@ -231,7 +231,7 @@ export default function PlayerSelector() {
           ))}
         </Listbox>
       ) : null}
-       <div style={{ display: 'flex', justifyContent: 'center' }}> <Button variant="contained" onClick={handleSubmit}>Submit</Button> </div>
+       <div style={{ display: 'flex', justifyContent: 'center', padding: '5px' }}> <Button variant="contained" onClick={handleSubmit}>Submit</Button> </div>
     </Root>
     </CenteredContainer>
   

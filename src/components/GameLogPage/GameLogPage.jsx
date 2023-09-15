@@ -17,6 +17,7 @@ export default function GameLogPage() {
     return(
        <div>
        <ButtonToUserPage />
+       <div> <div><hr className="rounded" /></div> </div>
        <h3>Pre-Game</h3>
        <PlayerSelector />
        <DeckSelector />
