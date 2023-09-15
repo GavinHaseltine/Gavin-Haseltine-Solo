@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import Button from '@mui/material/Button';
 
+
 const Root = styled('div')(
   ({ theme }) => `
   color: ${
@@ -24,6 +25,7 @@ const Label = styled('label')`
   display: block;
 `;
 
+
 const InputWrapper = styled('div')(
   ({ theme }) => `
   width: 300px;
@@ -33,6 +35,7 @@ const InputWrapper = styled('div')(
   padding: 1px;
   display: flex;
   flex-wrap: wrap;
+  
 
   &:hover {
     border-color: ${theme.palette.mode === 'dark' ? '#177ddc' : '#40a9ff'};
@@ -50,7 +53,7 @@ const InputWrapper = styled('div')(
     };
     height: 30px;
     box-sizing: border-box;
-    padding: 4px 6px;
+    padding: 4x 6px;
     width: 0;
     min-width: 30px;
     flex-grow: 1;
@@ -203,18 +206,18 @@ export default function DeckSelector() {
   });
 
   return (
-    <Root>
+    <Root >
       <div {...getRootProps()}>
         <Label {...getInputLabelProps()}>Deck List</Label>
         <InputWrapper ref={setAnchorEl} className={focused ? 'focused' : ''}>
           {value.map((option, index) => (
-            <StyledTag label={option.deck_name} {...getTagProps({ index })} />
+            <StyledTag  label={option.deck_name} {...getTagProps({ index })} />
           ))}
           <input {...getInputProps()} />
         </InputWrapper>
       </div>
       {groupedOptions.length > 0 ? (
-        <Listbox {...getListboxProps()}>
+        <Listbox  {...getListboxProps()}>
           {groupedOptions.map((option, index) => (
             <li {...getOptionProps({ option, index })}>
               <span>{option.deck_name}</span>
@@ -223,7 +226,7 @@ export default function DeckSelector() {
           ))}
         </Listbox>
       ) : null}
-       <div> <Button variant="contained" onClick={handleSubmit}>Submit</Button> </div>
+       <div> <Button  variant="contained" onClick={handleSubmit}>Submit</Button> </div>
     </Root>
 
   

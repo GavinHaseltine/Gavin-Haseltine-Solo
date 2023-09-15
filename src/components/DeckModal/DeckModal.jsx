@@ -101,6 +101,11 @@ export default function DeckModal() {
 
                         {decks.map((deck) => {
                             let winrate = (deck.deck_wins / deck.deck_plays * 100).toFixed(1);
+
+                            if (isNaN(winrate)) {
+                                winrate = 0;
+                            }
+                            
                             return (
                                 <div key={deck.id}>
                                     <li className='name'>{deck.deck_name}</li>

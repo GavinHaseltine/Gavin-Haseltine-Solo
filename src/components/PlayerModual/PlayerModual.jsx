@@ -98,6 +98,11 @@ export default function PlayerModal() {
 
                         {players.map((player) => {
                             let winrate = (player.games_won / player.games_played * 100).toFixed(1);
+
+                            if (isNaN(winrate)) {
+                                winrate = 0;
+                            }
+
                             return (
                                 <div key={player.id}>
                                     <li className='name'>{player.player_name}</li>
