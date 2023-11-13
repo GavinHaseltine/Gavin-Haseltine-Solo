@@ -91,10 +91,30 @@ export default function DeckModal() {
             >
                 <Box sx={style}>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
-
+                    <div ><CloseIcon onClick={handleClose} className='rightalign' /></div>
+                    
                         Deck List
 
-                        <div ><CloseIcon onClick={handleClose} className='rightalign' /></div>
+                        <div> <div><hr id="rounded" /></div> </div>
+
+                        <form onSubmit={handleAdd}>
+                            <input
+                                type="text"
+                                placeholder='Enter Deck Name'
+                                value={newDeckName}
+                                onChange={(event) => setNewDeckName(event.target.value)}
+                            />
+                            <input
+                                type="text"
+                                placeholder='Deck URL'
+                                value={newDeckURL}
+                                onChange={(event) => setNewDeckURL(event.target.value)}
+                            />
+                            <Button variant="contained" type="submit">Add Deck</Button>
+                        </form>
+
+                        <div> <div><hr id="rounded" /></div> </div>
+
                     </Typography>
                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
 
@@ -138,21 +158,7 @@ export default function DeckModal() {
                         })}
 
 
-                        <form onSubmit={handleAdd}>
-                            <input
-                                type="text"
-                                placeholder='Enter Deck Name'
-                                value={newDeckName}
-                                onChange={(event) => setNewDeckName(event.target.value)}
-                            />
-                            <input
-                                type="text"
-                                placeholder='Deck URL'
-                                value={newDeckURL}
-                                onChange={(event) => setNewDeckURL(event.target.value)}
-                            />
-                            <Button variant="contained" type="submit">Add Deck</Button>
-                        </form>
+                        
 
                     </Typography>
                 </Box>
